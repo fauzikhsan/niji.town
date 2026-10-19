@@ -1,3 +1,4 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="theme-color" content="#17201a"><meta name="apple-mobile-web-app-title" content="NiJi Town">
 <title>NiJi Town</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -125,9 +126,12 @@ input[type=range]{width:72px;height:12px;accent-color:var(--gold);margin:0;paddi
   body{padding-block:4px;padding-left:max(8px,env(safe-area-inset-left,0px));padding-right:max(8px,env(safe-area-inset-right,0px))}
   h1,.sub,.tip,.hint{display:none}
   .wrap{max-width:none;gap:4px;align-items:center}
-  .top{justify-content:center}
   .hud{gap:5px}.chip{font-size:8px;padding:5px 7px}
-  .screen{width:min(100%,calc((100vh - 84px)*1.333))}
+  .screen{width:min(100%,calc((100vh - 40px)*1.333),calc(100vw - 300px))}
+  .top{position:fixed;right:max(8px,env(safe-area-inset-right,0px));top:6px;z-index:5;width:128px}
+  .hud{flex-direction:column;align-items:stretch;gap:4px}
+  .hud .chip{justify-content:center;font-size:7px;padding:5px 4px}
+  .hud input[type=range]{width:50px}
   .timebar{position:fixed;left:max(10px,env(safe-area-inset-left,0px));top:56px;z-index:5}
   .timebar .tcol{display:none}
   #dial{width:64px;height:64px}
@@ -136,6 +140,8 @@ input[type=range]{width:72px;height:12px;accent-color:var(--gold);margin:0;paddi
   .dpad{grid-template-columns:repeat(3,58px);grid-template-rows:repeat(3,58px)}
   .abtn{width:96px;height:96px}
 }
+.rot{display:none;margin:0;font-size:15px;opacity:.75;text-align:center}
+@media (max-width:640px) and (orientation:portrait){.rot{display:block}}
 </style>
 
 <div class="wrap">
@@ -152,6 +158,7 @@ input[type=range]{width:72px;height:12px;accent-color:var(--gold);margin:0;paddi
       <button class="chip" id="sfx" type="button" aria-pressed="true">Sound: on</button>
       <button class="chip" id="rain" type="button" aria-pressed="false">Rain: off</button>
       <button class="chip" id="albumBtn" type="button">Album 0/14</button>
+      <button class="chip" id="fs" type="button">Full screen</button>
     </div>
   </header>
   <div class="timebar" role="group" aria-label="Time controls">
@@ -181,6 +188,7 @@ input[type=range]{width:72px;height:12px;accent-color:var(--gold);margin:0;paddi
     </div>
     <button class="abtn" id="btnA" aria-label="Talk">A</button>
   </div>
+  <p class="rot">Tip: rotate your phone sideways for a bigger screen.</p>
   <p class="hint">Arrow keys or WASD to walk. Space or Enter to talk.</p>
 </div>
 
@@ -2449,6 +2457,17 @@ choicesEl.addEventListener("pointerdown",e=>e.stopPropagation());
 $("photosClose").addEventListener("click",closePhotos);
 $("albumClose").addEventListener("click",closeAlbum);
 $("albumBtn").addEventListener("click",()=>{Snd.unlock();if(started&&!paused&&!sc.on&&!fade.state)openAlbum()});
+$("fs").addEventListener("click",()=>{
+  const d=document,e=d.documentElement;
+  try{
+    if(d.fullscreenElement||d.webkitFullscreenElement){(d.exitFullscreen||d.webkitExitFullscreen).call(d)}
+    else{
+      const f=e.requestFullscreen||e.webkitRequestFullscreen;
+      if(f){const r=f.call(e);if(r&&r.then)r.then(()=>{try{screen.orientation.lock("landscape").catch(()=>{})}catch(_){}}).catch(()=>{})}
+      else toast("FULL SCREEN","iPhone: tap Share, then Add to Home Screen",5);
+    }
+  }catch(_){}
+});
 $("rain").addEventListener("click",()=>{Snd.unlock();if(started)toggleRain()});
 $("tpause").addEventListener("click",()=>{timePaused=!timePaused;$("tpause").textContent=timePaused?"Play":"Pause"});
 $("tspeed").addEventListener("click",()=>{speed=speed===1?2:speed===2?4:1;$("tspeed").textContent=speed+"x"});
@@ -2507,3 +2526,4 @@ function frame(now){
 requestAnimationFrame(frame);
 })();
 </script>
+</body></html>
