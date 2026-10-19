@@ -2478,10 +2478,30 @@ function joyEnd(e){
   joyId=null;held.u=held.d=held.l=held.r=0;
   knob.style.setProperty("--kx","0px");knob.style.setProperty("--ky","0px");
 }
-joy.addEventListener("pointerdown",e=>{e.preventDefault();Snd.unlock();joyId=e.pointerId;try{joy.setPointerCapture(e.pointerId)}catch(_){}joyMove(e)});
-joy.addEventListener("pointermove",e=>{if(e.pointerId===joyId){e.preventDefault();joyMove(e)}});
-["pointerup","pointercancel","lostpointercapture"].forEach(t=>joy.addEventListener(t,joyEnd));
-$("btnA").addEventListener("pointerdown",e=>{e.preventDefault();Snd.unlock();act()});
+let joyTouch=null;
+const joyPt=t=>({clientX:t.clientX,clientY:t.clientY});
+joy.addEventListener("touchstart",e=>{
+  e.preventDefault();Snd.unlock();
+  if(joyTouch!==null)return;
+  const t=e.changedTouches[0];joyTouch=t.identifier;joyMove(joyPt(t));
+},{passive:false});
+joy.addEventListener("touchmove",e=>{
+  e.preventDefault();
+  for(const t of e.changedTouches)if(t.identifier===joyTouch){joyMove(joyPt(t));break}
+},{passive:false});
+const touchEnd=e=>{
+  e.preventDefault();
+  for(const t of e.changedTouches)if(t.identifier===joyTouch){joyTouch=null;joyEnd();break}
+};
+joy.addEventListener("touchend",touchEnd,{passive:false});
+joy.addEventListener("touchcancel",touchEnd,{passive:false});
+joy.addEventListener("contextmenu",e=>e.preventDefault());
+joy.addEventListener("pointerdown",e=>{if(e.pointerType==="touch")return;e.preventDefault();Snd.unlock();joyId=e.pointerId;try{joy.setPointerCapture(e.pointerId)}catch(_){}joyMove(e)});
+joy.addEventListener("pointermove",e=>{if(e.pointerType!=="touch"&&e.pointerId===joyId){e.preventDefault();joyMove(e)}});
+["pointerup","pointercancel","lostpointercapture"].forEach(t=>joy.addEventListener(t,e=>{if(e.pointerType!=="touch")joyEnd(e)}));
+const ab=$("btnA");
+ab.addEventListener("touchstart",e=>{e.preventDefault();Snd.unlock();act()},{passive:false});
+$("btnA").addEventListener("pointerdown",e=>{if(e.pointerType==="touch")return;e.preventDefault();Snd.unlock();act()});
 $("dialog").addEventListener("pointerdown",()=>{Snd.unlock();if(paused)return;if(sc.on){sceneSkip();return}if(dlg&&!dlg.waiting)advance()});
 choicesEl.addEventListener("pointerdown",e=>e.stopPropagation());
 $("photosClose").addEventListener("click",closePhotos);
