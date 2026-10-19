@@ -1,4 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="theme-color" content="#17201a"><meta name="apple-mobile-web-app-title" content="NiJi Town">
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="theme-color" content="#17201a"><meta name="apple-mobile-web-app-title" content="NiJi Town">
 <title>NiJi Town</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,10 +34,10 @@ button.chip:focus-visible,.pad button:focus-visible,.btn:focus-visible{outline:3
 .screen{container-type:inline-size;position:relative;overflow:hidden;border:8px solid var(--wood);box-shadow:inset 0 0 0 3px var(--wood-d),0 0 0 3px var(--wood-d),0 7px 0 #000;background:#4d8a36;line-height:0}
 canvas{display:block;width:100%;height:auto;aspect-ratio:4/3;max-width:100%;image-rendering:pixelated}
 .ov{position:absolute;pointer-events:none;line-height:1.2;font-family:var(--f-b);color:#fff;text-shadow:-2px 0 #1a1218,2px 0 #1a1218,0 -2px #1a1218,0 2px #1a1218,-1px -1px #1a1218,1px 1px #1a1218,-1px 1px #1a1218,1px -1px #1a1218}
-.obj{left:8px;top:6px;font-size:clamp(9px,1.8cqw,13px);max-width:52%}
+.obj{left:8px;top:6px;font-size:clamp(9px,1.8vw,13px);font-size:clamp(9px,1.8cqw,13px);max-width:52%}
 .obj b{font-family:var(--f-d);font-weight:400;font-size:.62em;color:var(--gold);display:block;letter-spacing:.06em;margin-bottom:3px}
 .obj .ok{color:#8ee07a}
-.toast{right:8px;top:6px;font-size:clamp(8px,1.5cqw,11px);text-align:right;background:rgba(10,8,20,.5);padding:3px 7px;border:1px solid rgba(232,165,58,.7);max-width:44%;animation:tin .3s steps(3)}
+.toast{right:8px;top:6px;font-size:clamp(8px,1.5vw,11px);font-size:clamp(8px,1.5cqw,11px);text-align:right;background:rgba(10,8,20,.5);padding:3px 7px;border:1px solid rgba(232,165,58,.7);max-width:44%;animation:tin .3s steps(3)}
 .toast b{font-family:var(--f-d);font-weight:400;font-size:.62em;color:var(--gold);display:block;margin-bottom:3px}
 .toast[hidden],.obj[hidden]{display:none}
 @keyframes tin{from{opacity:0}}
@@ -45,10 +45,10 @@ canvas{display:block;width:100%;height:auto;aspect-ratio:4/3;max-width:100%;imag
 .sub[hidden]{display:none}
 .sub.idle{left:50%;right:auto;transform:translateX(-50%);bottom:10px;padding:5px 12px;background:rgba(10,8,20,.5);border:2px solid rgba(243,220,164,.5);cursor:default;white-space:nowrap}
 .sub.idle .tag{margin:0 8px 0 0}
-.sub.idle p{display:inline;font-size:clamp(11px,2.4cqw,16px);min-height:0}
-.tag{display:inline-block;font-family:var(--f-d);font-size:clamp(8px,1.7cqw,10px);color:var(--gold);margin-bottom:6px;letter-spacing:.05em;text-shadow:-2px 0 #1a1218,2px 0 #1a1218,0 -2px #1a1218,0 2px #1a1218,-1px -1px #1a1218,1px 1px #1a1218,-1px 1px #1a1218,1px -1px #1a1218}
+.sub.idle p{display:inline;font-size:clamp(11px,2.4vw,16px);font-size:clamp(11px,2.4cqw,16px);min-height:0}
+.tag{display:inline-block;font-family:var(--f-d);font-size:clamp(8px,1.7vw,10px);font-size:clamp(8px,1.7cqw,10px);color:var(--gold);margin-bottom:6px;letter-spacing:.05em;text-shadow:-2px 0 #1a1218,2px 0 #1a1218,0 -2px #1a1218,0 2px #1a1218,-1px -1px #1a1218,1px 1px #1a1218,-1px 1px #1a1218,1px -1px #1a1218}
 .tag.ji{color:#7cc4f2}.tag.bibi{color:#7be0a8}
-.sub p{margin:0;font-size:clamp(12px,3.1cqw,22px);line-height:1.25;min-height:2.5em;max-width:92%;text-shadow:-2px 0 #1a1218,2px 0 #1a1218,0 -2px #1a1218,0 2px #1a1218,-1px -1px #1a1218,1px 1px #1a1218,-1px 1px #1a1218,1px -1px #1a1218}
+.sub p{margin:0;font-size:clamp(12px,3.1vw,22px);font-size:clamp(12px,3.1cqw,22px);line-height:1.25;min-height:2.5em;max-width:92%;text-shadow:-2px 0 #1a1218,2px 0 #1a1218,0 -2px #1a1218,0 2px #1a1218,-1px -1px #1a1218,1px 1px #1a1218,-1px 1px #1a1218,1px -1px #1a1218}
 .next{position:absolute;right:16px;bottom:14px;width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-top:10px solid #f3dca4;filter:drop-shadow(0 2px 0 #1a1218);animation:bob .9s steps(2) infinite}
 @keyframes bob{50%{transform:translateY(4px)}}
 .pad{display:flex;justify-content:space-between;align-items:center;gap:16px}
@@ -74,7 +74,7 @@ canvas{display:block;width:100%;height:auto;aspect-ratio:4/3;max-width:100%;imag
 input[type=range]{width:72px;height:12px;accent-color:var(--gold);margin:0;padding:0}
 .choices{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
 .choices[hidden]{display:none}
-.choices button{font-family:var(--f-b);font-size:clamp(12px,2.9cqw,20px);background:rgba(10,8,20,.6);color:#fff;border:2px solid rgba(243,220,164,.7);padding:6px 12px;min-height:40px;cursor:pointer;text-shadow:-1px 0 #1a1218,1px 0 #1a1218,0 1px #1a1218,0 -1px #1a1218}
+.choices button{font-family:var(--f-b);font-size:clamp(12px,2.9vw,20px);font-size:clamp(12px,2.9cqw,20px);background:rgba(10,8,20,.6);color:#fff;border:2px solid rgba(243,220,164,.7);padding:6px 12px;min-height:40px;cursor:pointer;text-shadow:-1px 0 #1a1218,1px 0 #1a1218,0 1px #1a1218,0 -1px #1a1218}
 .choices button:hover{background:rgba(232,165,58,.45)}
 .choices button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 .photos[hidden]{display:none}
@@ -117,7 +117,7 @@ input[type=range]{width:72px;height:12px;accent-color:var(--gold);margin:0;paddi
   .hud{gap:5px}.chip{font-size:8px;padding:6px 7px}
   input[type=range]{width:56px}
   #dial{width:72px;height:72px}.tip{display:none}
-  .dpad{grid-template-columns:repeat(3,76px);grid-template-rows:repeat(3,76px)}
+  .pad .joy{width:156px;height:156px}
   .abtn{width:120px;height:120px;font-size:26px}
   .screen{border-width:4px}
   .hint{display:none}
@@ -138,11 +138,16 @@ input[type=range]{width:72px;height:12px;accent-color:var(--gold);margin:0;paddi
   #dial{width:64px;height:64px}
   .pad{position:fixed;left:0;right:0;bottom:8px;padding:0 max(12px,env(safe-area-inset-right,0px)) 0 max(12px,env(safe-area-inset-left,0px));pointer-events:none;z-index:5}
   .pad>*{pointer-events:auto;opacity:.82}
-  .dpad{grid-template-columns:repeat(3,58px);grid-template-rows:repeat(3,58px)}
+  .pad .joy{width:124px;height:124px}.pad .knob{width:52px;height:52px;margin:-26px 0 0 -26px}
   .abtn{width:96px;height:96px}
 }
 .rot{display:none;margin:0;font-size:15px;opacity:.75;text-align:center}
 @media (max-width:640px) and (orientation:portrait){.rot{display:block}}
+.joy{width:150px;height:150px;border-radius:50%;background:radial-gradient(circle,rgba(74,44,20,.55) 0,rgba(74,44,20,.85) 100%);border:4px solid var(--wood);box-shadow:0 4px 0 #000;position:relative;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;flex:none}
+.knob{position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:var(--wood-l);border:4px solid var(--wood-d);box-shadow:0 3px 0 #000;transform:translate(var(--kx,0px),var(--ky,0px));pointer-events:none}
+html{-webkit-text-size-adjust:100%;-webkit-touch-callout:none}
+body{touch-action:manipulation;-webkit-user-select:none;user-select:none}
+@supports (height:100dvh){@media (orientation:landscape) and (max-height:520px){.screen{width:min(100%,calc((100dvh - 26px)*1.333),calc(100vw - 300px))}}}
 </style>
 
 <div class="wrap">
@@ -181,12 +186,7 @@ input[type=range]{width:72px;height:12px;accent-color:var(--gold);margin:0;paddi
     </div>
   </div>
   <div class="pad" id="pad">
-    <div class="dpad">
-      <button data-dir="u" aria-label="Up"></button>
-      <button data-dir="l" aria-label="Left"></button>
-      <button data-dir="r" aria-label="Right"></button>
-      <button data-dir="d" aria-label="Down"></button>
-    </div>
+    <div class="joy" id="joy" aria-label="Move"><div class="knob" id="knob"></div></div>
     <button class="abtn" id="btnA" aria-label="Talk">A</button>
   </div>
   <p class="rot">Psst, sayang: turn your phone sideways and the town gets much bigger.</p>
@@ -2461,12 +2461,26 @@ addEventListener("keydown",e=>{
 });
 addEventListener("keyup",e=>{const d=keyMap[e.code];if(d)held[d]=0});
 addEventListener("blur",()=>{held.u=held.d=held.l=held.r=0});
-document.querySelectorAll("[data-dir]").forEach(b=>{
-  const d=b.dataset.dir;
-  const off=()=>{held[d]=0;b.classList.remove("down")};
-  b.addEventListener("pointerdown",e=>{e.preventDefault();Snd.unlock();held[d]=1;b.classList.add("down");try{b.setPointerCapture(e.pointerId)}catch(_){}});
-  b.addEventListener("pointerup",off);b.addEventListener("pointercancel",off);b.addEventListener("lostpointercapture",off);
-});
+const joy=$("joy"),knob=$("knob");let joyId=null;
+function joyMove(e){
+  const r=joy.getBoundingClientRect(),R0=r.width/2;
+  let dx=e.clientX-(r.left+R0),dy=e.clientY-(r.top+R0);
+  const d=Math.hypot(dx,dy),mx=R0-20;
+  if(d>mx){dx=dx/d*mx;dy=dy/d*mx}
+  knob.style.setProperty("--kx",dx+"px");knob.style.setProperty("--ky",dy+"px");
+  const m=Math.hypot(dx,dy);
+  if(m<R0*.2){held.l=held.r=held.u=held.d=0;return}
+  const ax=dx/m,ay=dy/m;
+  held.r=ax>.38?1:0;held.l=ax<-.38?1:0;held.d=ay>.38?1:0;held.u=ay<-.38?1:0;
+}
+function joyEnd(e){
+  if(joyId!==null&&e&&e.pointerId!==undefined&&e.pointerId!==joyId)return;
+  joyId=null;held.u=held.d=held.l=held.r=0;
+  knob.style.setProperty("--kx","0px");knob.style.setProperty("--ky","0px");
+}
+joy.addEventListener("pointerdown",e=>{e.preventDefault();Snd.unlock();joyId=e.pointerId;try{joy.setPointerCapture(e.pointerId)}catch(_){}joyMove(e)});
+joy.addEventListener("pointermove",e=>{if(e.pointerId===joyId){e.preventDefault();joyMove(e)}});
+["pointerup","pointercancel","lostpointercapture"].forEach(t=>joy.addEventListener(t,joyEnd));
 $("btnA").addEventListener("pointerdown",e=>{e.preventDefault();Snd.unlock();act()});
 $("dialog").addEventListener("pointerdown",()=>{Snd.unlock();if(paused)return;if(sc.on){sceneSkip();return}if(dlg&&!dlg.waiting)advance()});
 choicesEl.addEventListener("pointerdown",e=>e.stopPropagation());
